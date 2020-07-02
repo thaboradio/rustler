@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IBusiness } from '../models/ibusiness';
 import { BizdireService } from '../services/bizdire.service';
+import { Event, Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-biz-directory',
@@ -10,7 +11,11 @@ import { BizdireService } from '../services/bizdire.service';
 export class BizDirectoryComponent implements OnInit {
 listOfBusinesses: IBusiness[] = [];
 onFlyBusinessList = null;
-  constructor(private busService: BizdireService) { }
+showLoading = false;
+
+  constructor(private busService: BizdireService) {
+
+  }
 
   ngOnInit() {
     this.getAllBusinesses();

@@ -36,7 +36,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AngularFontAwesomeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 10000,
+      timeOut: 3000,
       progressBar: true,
       progressAnimation: 'increasing',
       preventDuplicates: true

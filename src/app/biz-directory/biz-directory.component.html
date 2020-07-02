@@ -1,5 +1,5 @@
 <div class="header">
-  <a routerLink="../addbiz" class="btn-enlist">List your business</a>
+  <a routerLink="/addbiz" class="btn-enlist">List your business</a>
 </div>
 
 <div class="card-white" *ngFor="let item of listOfBusinesses">
@@ -9,6 +9,6 @@
     <p>{{item.Description}}</p>
   </div>
   <div class="card-white-footer">
-    <a href="" class="more-info" [routerLink]="['/biz']">More Info</a>
+    <a href="" class="more-info" [routerLink]="['/biz', 2]">More Info</a>
   </div>
 </div>
