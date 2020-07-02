@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="header">
+    <a routerLink="../addbiz" class="btn-enlist">List your business</a>
+  </div>
+  
+  <div class="middle" *ngFor="let item of listOfBusinesses">
+    <div class="card-white">
+      <img [src]="item.Logo" alt="" class="logo" style="width: 100px; height:100px;">
+      <h2 class="card-white-title">{{item.Name}}</h2>
+      <div class="card-white-body">
+        <p>{{item.Description}}</p>
+      </div>
+      <div class="card-white-footer">
+        <a href="" class="more-info">More Info</a>
+      </div>
+    </div>
+
+<!-- dummy cards to test layout -->
+     <!-- <div class="middle">
+      <div class="card-white">
+  
+        <h2 class="card-white-title">{}</h2>
+        <div class="card-white-body">
+          <p>Description of business goes here</p>
+        </div>
+        <div class="card-white-footer">
+          <a href="" class="more-info">More Info</a>
+        </div>
+      </div>
+  </div>  -->
+</div>
+
+

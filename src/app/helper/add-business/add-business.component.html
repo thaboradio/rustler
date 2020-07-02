@@ -1,0 +1,63 @@
+<div class="back-to-list-card">
+  <a routerLink="../bizdir" class="back-to-list">Back to list</a>
+</div>
+<div class="container">
+  <div class="business-add-card">
+    <h2>List your business</h2>
+    <div class="business-add-form">
+      <div class="logo-section">
+        <form [formGroup]="businessForm" #BizForm (submit)="onSubmit(Image)">
+        <div class="logo-form">         
+          <p>
+            <img [src]="imageUrl" alt="" style="width: 50px;">
+          </p>
+          <input type="file" id="logo" class="formControl hidden" accept="image/*" placeholder="logo" hidden
+          (change)="handleFileInput($event.target.files)" #Image formControlName="Logo">
+          <label for="logo" class="logo">Click to upload your logo.</label>
+          
+        </div>
+        <br>
+        <div class="business-detail-section">
+          <p>
+            <input type="text" class="formControl" id="name" placeholder="Name of your business" formControlName="Name">
+          </p>
+          <p>
+            <textarea class="formControl" name="description" id="description" cols="30" rows="10"
+              style="resize: none;" formControlName="Description"></textarea>
+          </p>
+          <p>
+            <select name="" id="" class="formControl" formControlName="Category">
+              <option value="0" disabled selected>Select Category</option>
+              <option [value]="cat.Id" *ngFor="let cat of listOfCategories">{{cat.Name}}</option>
+            </select>
+          </p>
+          <p>
+            <input type="tel" class="formControl" id="phoneNumber" placeholder="0114568578" formControlName="PhoneNumber">
+          </p>
+          <p>
+            <input type="tel" class="formControl" id="alternativeNumber" placeholder="0114568577" formControlName="AlternativePhoneNumber">
+          </p>
+          <p>
+            <input type="email" class="formControl" id="emailAddress" placeholder="biz@email.com" formControlName="EmailAddress">
+          </p>
+          <p>
+            <input type="text" class="formControl" id="website" placeholder="www.companyname.com" formControlName="Website">
+          </p>
+          <p>
+            <input type="text" class="formControl" id="fbLink" placeholder="https://www.facebook.com/companyname" formControlName="FacebookLink">
+          </p>
+          <p>
+            <input type="text" class="formControl" id="twitLink" placeholder="https://www.twitter.com/companyname" formControlName="TwitterLink">
+          </p>
+          <br>
+          <p>
+            <!-- <a href="!#" class="submit-button" (click)="onSubmit()">Submit</a> -->
+            <button type="submit" class="submit-button">Submit</button>
+          </p>
+        
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
