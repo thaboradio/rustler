@@ -10,6 +10,7 @@ import { BizDirectoryComponent } from './biz-directory/biz-directory.component';
 import { BizcategoryComponent } from './bizcategory/bizcategory.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddBusinessComponent } from './helper/add-business/add-business.component';
+import { IntroComponent } from './intro/intro.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AddBusinessComponent } from './helper/add-business/add-business.compone
     FooterComponent,
     BizDirectoryComponent,
     BizcategoryComponent,
-    AddBusinessComponent
+    AddBusinessComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule,
