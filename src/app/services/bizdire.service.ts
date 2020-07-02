@@ -18,6 +18,10 @@ httpOptions = {
     return this.http.get<IBusiness[]>(this.baseUrl + 'api/Business');
   }
 
+  getBusinessDetails(id) {
+    return this.http.get<IBusiness>(this.baseUrl + '/api/Business/' +  id);
+  }
+
 addNewBusiness(fileToUpload: File, business: IBusiness) {
   const formData: FormData = new FormData();
   formData.append('Logo', fileToUpload, fileToUpload.name);

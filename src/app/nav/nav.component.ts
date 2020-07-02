@@ -22,6 +22,17 @@ function getQ() {
     burger.classList.toggle('toggle');
   });
 }
+
+function toggleMenu() {
+  // tslint:disable-next-line:prefer-const
+  let mainNav = document.getElementById('js-menu');
+  // tslint:disable-next-line:prefer-const
+  let navBarToggle = document.getElementById('js-navbar-toggle');
+
+  navBarToggle.addEventListener('click', () => {
+    mainNav.classList.toggle('active');
+  });
+}
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -33,7 +44,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     // toggleNav();
-    getQ();
+   toggleMenu();
   }
 
 

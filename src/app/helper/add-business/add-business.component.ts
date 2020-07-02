@@ -4,6 +4,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { IBusiness } from 'src/app/models/ibusiness';
 import { Bizcategory } from 'src/app/interfaces/bizcategory';
 import { BizcategoryService } from 'src/app/services/bizcategory.service';
+import { ToastrService } from 'ngx-toastr';
 
 function preventFormRefresh() {
   const form = document.querySelector('form');
@@ -20,6 +21,7 @@ export class AddBusinessComponent implements OnInit {
   listOfCategories: Bizcategory[] = [];
   fileToUpload: File = null;
   imageUrl = '/assets/img/placeholder.png';
+  message;
 
   businessForm = new FormGroup({
   Logo: new FormControl(''),
@@ -35,7 +37,8 @@ export class AddBusinessComponent implements OnInit {
 });
 
 
-  constructor(private businessService: BizdireService, private bizCatService: BizcategoryService) { }
+  constructor(private businessService: BizdireService, private bizCatService: BizcategoryService,
+              private toast: ToastrService) { }
 
   ngOnInit() {
     preventFormRefresh();
@@ -54,7 +57,8 @@ export class AddBusinessComponent implements OnInit {
 
   onSubmit(Image) {
     if (this.fileToUpload === null) {
-      alert('Please select a logo');
+      this.message = 'logo required';
+      this.showToast(this.message);
     } else {
     const data: IBusiness = {
       Name: this.businessForm.value.Name,
@@ -70,12 +74,14 @@ export class AddBusinessComponent implements OnInit {
     };
     this.businessService.addNewBusiness(this.fileToUpload, data)
     .subscribe(res => {
-      this.businessForm.reset();
-      alert('data saved');
+      this.message = 'data saved';
+      this.showToast(this.message);
       Image = null;
+      this.businessForm.reset();
       this.imageUrl = '/assets/img/placeholder.png';
     },
     error => {
+      this.toast.error(JSON.stringify(error), 'RustlerX');
       console.log(error);
     });
   }
@@ -90,4 +96,8 @@ export class AddBusinessComponent implements OnInit {
       console.log(error);
     });
   }
+
+showToast(message) {
+    this.toast.success(message, 'RustlerX');
+}
 }

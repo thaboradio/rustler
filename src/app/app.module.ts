@@ -11,8 +11,10 @@ import { BizcategoryComponent } from './bizcategory/bizcategory.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddBusinessComponent } from './helper/add-business/add-business.component';
 import { IntroComponent } from './intro/intro.component';
-
-
+import { BizDetailsComponent } from './biz-details/biz-details.component';
+import { AngularFontAwesomeModule} from 'angular-font-awesome';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,14 +24,23 @@ import { IntroComponent } from './intro/intro.component';
     BizDirectoryComponent,
     BizcategoryComponent,
     AddBusinessComponent,
-    IntroComponent
+    IntroComponent,
+    BizDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

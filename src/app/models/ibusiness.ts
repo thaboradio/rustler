@@ -1,4 +1,5 @@
 export interface IBusiness {
+      // Id: number;
       Name: string;
       Category: number;
       Description: string;

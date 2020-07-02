@@ -5,13 +5,13 @@ import { BizcategoryComponent } from './bizcategory/bizcategory.component';
 import { BizDirectoryComponent } from './biz-directory/biz-directory.component';
 import { AddBusinessComponent } from './helper/add-business/add-business.component';
 import { IntroComponent } from './intro/intro.component';
+import { BizDetailsComponent } from './biz-details/biz-details.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'intro'},
-  {path: 'about', component: AboutComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'bizdir'},
   {path: 'bizdir', component: BizDirectoryComponent},
   {path: 'addbiz', component: AddBusinessComponent},
-  {path: 'intro', component: IntroComponent}
+  {path: 'biz/:id', component: BizDetailsComponent}
 ];
 
 @NgModule({
