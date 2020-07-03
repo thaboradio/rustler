@@ -1,3 +1,20 @@
-<div class="container">
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#E33C17" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: #FFFFFF; font-weight: bolder; font-size: 22px;">Loading</p>
+</ngx-spinner>
+<div class="header-card">
   <h2>{{business.Name}}</h2>
+</div>
+<div class="card-white">
+  <div class="card-body">
+    <div class="card-image">
+      <img [src]="business.Logo" alt="">
+    </div>
+    <div class="card-details">
+      <p class="description">
+        {{business.Description}}
+      </p>
+      
+    </div>
+  </div>
+  
 </div>

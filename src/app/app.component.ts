@@ -1,22 +1,16 @@
-import { Component } from '@angular/core';
-import {Event,  Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import {NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  showLoading = true;
-  constructor(private router: Router) {
-    this.router.events.subscribe((routerEvent: Event) => {
-      if (routerEvent instanceof NavigationStart) {
-        this.showLoading = true;
-      }
+export class AppComponent implements OnInit {
+  constructor() {
+  }
 
-      if (routerEvent instanceof NavigationEnd) {
-        this.showLoading = false;
-      }
-    });
+  ngOnInit() {
+
   }
 }

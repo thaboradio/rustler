@@ -1,4 +1,4 @@
-export interface IBusiness {
+export class IBusiness {
       // Id: number;
       Name: string;
       Category: number;

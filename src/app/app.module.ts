@@ -15,6 +15,7 @@ import { BizDetailsComponent } from './biz-details/biz-details.component';
 import { AngularFontAwesomeModule} from 'angular-font-awesome';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxSpinnerModule} from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
     AngularFontAwesomeModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       progressBar: true,
