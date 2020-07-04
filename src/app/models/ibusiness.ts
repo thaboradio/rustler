@@ -1,5 +1,5 @@
 export class IBusiness {
-      // Id: number;
+      Id: number;
       Name: string;
       Category: number;
       Description: string;

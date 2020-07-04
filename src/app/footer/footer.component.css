@@ -5,8 +5,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #FFFFFF;
-    position: relative;
+    color: #ffffff;
+    position: sticky;
     width: 100%;
     left: 0;
     bottom: 0;

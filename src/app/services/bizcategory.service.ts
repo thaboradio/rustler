@@ -12,4 +12,8 @@ baseUrl = 'https://rustlerwebapi.azurewebsites.net/';
   getCategories() {
     return this.http.get<Bizcategory[]>(this.baseUrl + 'api/Category', {responseType: 'json'});
   }
+
+  getCategory(id) {
+    return this.http.get(this.baseUrl + 'api/Category/' + id);
+  }
 }

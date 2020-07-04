@@ -7,14 +7,41 @@
 <div class="card-white">
   <div class="card-body">
     <div class="card-image">
-      <img [src]="business.Logo" alt="">
+      <img [src]="business.Logo" alt="" class="logo">
     </div>
     <div class="card-details">
-      <p class="description">
+      <p class="details">
         {{business.Description}}
       </p>
-      
+      <p class="details">
+        Category : {{category}}
+      </p>
+      <p class="details">
+        Phone : {{business.PhoneNumber}}
+      </p>
+      <p class="details">
+        Alternative Phone : {{business.AlternativePhoneNumber}}
+      </p>
+      <p class="details">
+        Email Address : {{business.EmailAddress}}
+      </p>
+      <p class="details">
+        Website : <a href="{{business.Website}}">{{business.FacebookLink}}</a>
+      </p>
+      <div class="social-links">
+        <div class="social-links-fa-tw">
+          <a href="{{business.FacebookLink}}">
+            <i class="fa fa-facebook-square" aria-hidden="true" style="font-size: 100px; color: #3b5998;"></i>
+          </a>
+          <a href="{{business.TwitterLink}}">
+            <i class="fa fa-twitter-square" aria-hidden="true" style="font-size: 100px; color: #00acee"></i>
+          </a>
+        </div>
+      </div>
     </div>
+
   </div>
-  
+  <div class="card-footer">
+    <a class="btn-back" href="/bizdir">Back</a>
+  </div>
 </div>

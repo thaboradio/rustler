@@ -22,7 +22,7 @@ httpOptions = {
     return this.http.get<IBusiness>(this.baseUrl + '/api/Business/' +  id);
   }
 
-addNewBusiness(fileToUpload: File, business: IBusiness) {
+addNewBusiness(fileToUpload: File, business) {
   const formData: FormData = new FormData();
   formData.append('Logo', fileToUpload, fileToUpload.name);
   formData.append('Name', business.Name);

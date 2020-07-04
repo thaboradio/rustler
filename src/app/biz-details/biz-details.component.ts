@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BizdireService } from '../services/bizdire.service';
 import { IBusiness } from '../models/ibusiness';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { BizcategoryService } from '../services/bizcategory.service';
+import { Bizcategory } from '../interfaces/bizcategory';
 
 
 @Component({
@@ -13,8 +15,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class BizDetailsComponent implements OnInit {
 id;
 business: IBusiness =  new IBusiness();
-
-  constructor(private route: ActivatedRoute, private bizService: BizdireService, private spinner: NgxSpinnerService) {
+category;
+  constructor(private route: ActivatedRoute, private bizService: BizdireService, private spinner: NgxSpinnerService,
+              private catSer: BizcategoryService, private router: Router) {
   }
 
   ngOnInit() {
@@ -34,7 +37,17 @@ business: IBusiness =  new IBusiness();
     .subscribe(res => {
       this.spinner.hide();
       this.business = res;
-      console.log(JSON.stringify(this.business));
+      this.getCategory(this.business.Category);
+    },
+    error => {
+      console.log(error);
+    });
+  }
+
+  getCategory(id) {
+    return this.catSer.getCategory(id)
+    .subscribe(res => {
+      this.category = res;
     },
     error => {
       console.log(error);

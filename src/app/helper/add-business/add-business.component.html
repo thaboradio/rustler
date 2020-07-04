@@ -21,8 +21,10 @@
             <input type="text" class="formControl" id="name" placeholder="Name of your business" formControlName="Name">
           </p>
           <p>
-            <textarea class="formControl" name="description" id="description" cols="30" rows="10"
-              style="resize: none;" formControlName="Description"></textarea>
+            <textarea class="formControl" name="description" id="description"
+              style="resize: none;" formControlName="Description" maxlength="500" (keyup)="countChars()"></textarea>
+              <br>
+              <span *ngIf="hideTotalChars">{{letters}}/500</span>
           </p>
           <p>
             <select name="" id="" class="formControl" formControlName="Category">

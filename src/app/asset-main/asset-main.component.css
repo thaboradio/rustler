@@ -1,0 +1,37 @@
+.category-cards{
+    margin: 2% auto;
+    width: 80%;
+    height: 10vh;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    /* text-align: center; */
+    font-size: 22px;
+    font-weight: bolder;
+    border-radius: 4px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+}
+
+.header{
+    width: 20%;
+    float: left;
+    margin-right: 60%;
+}
+.header .heading{
+    margin-top: 2%;
+}
+.visit {
+    width: 20%;
+    float: left;
+}
+
+.visit .button{
+    color: #FFFFFF;
+    text-decoration: none;
+    float: right;
+    background: #E33C17;
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: block;
+    
+    /* text-align: center; */
+}

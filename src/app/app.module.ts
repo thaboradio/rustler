@@ -16,6 +16,8 @@ import { AngularFontAwesomeModule} from 'angular-font-awesome';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { LoginComponent } from './helper/login/login.component';
+import { AssetMainComponent } from './asset-main/asset-main.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,9 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     BizcategoryComponent,
     AddBusinessComponent,
     IntroComponent,
-    BizDetailsComponent
+    BizDetailsComponent,
+    LoginComponent,
+    AssetMainComponent
   ],
   imports: [
     BrowserModule,

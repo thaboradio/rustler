@@ -12,6 +12,8 @@ function preventFormRefresh() {
     event.preventDefault();
   });
 }
+
+
 @Component({
   selector: 'app-add-business',
   templateUrl: './add-business.component.html',
@@ -35,14 +37,15 @@ export class AddBusinessComponent implements OnInit {
   FacebookLink: new FormControl(''),
   TwitterLink: new FormControl('')
 });
-
-
+letters = 0;
+hideTotalChars = true;
   constructor(private businessService: BizdireService, private bizCatService: BizcategoryService,
               private toast: ToastrService) { }
 
   ngOnInit() {
     preventFormRefresh();
     this.getCategories();
+
   }
 
   handleFileInput(file: FileList) {
@@ -60,7 +63,7 @@ export class AddBusinessComponent implements OnInit {
       this.message = 'logo required';
       this.showToast(this.message);
     } else {
-    const data: IBusiness = {
+    const data = {
       Name: this.businessForm.value.Name,
       Description: this.businessForm.value.Description,
       Category: this.businessForm.value.Category,
@@ -99,5 +102,14 @@ export class AddBusinessComponent implements OnInit {
 
 showToast(message) {
     this.toast.success(message, 'RustlerX');
+}
+
+countChars() {
+
+  this.letters += 1;
+  if (this.letters === 500) {
+    this.showToast('Only 500 Charaters Allowed!');
+    this.hideTotalChars = false;
+  }
 }
 }
