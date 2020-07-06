@@ -8,6 +8,7 @@ import { IntroComponent } from './intro/intro.component';
 import { BizDetailsComponent } from './biz-details/biz-details.component';
 import { LoginComponent } from './helper/login/login.component';
 import { AssetMainComponent } from './asset-main/asset-main.component';
+import { AssetsComponent } from './assets/assets.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'bizdir'},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'addbiz', component: AddBusinessComponent},
   {path: 'biz/:id', component: BizDetailsComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'asset-main', component: AssetMainComponent}
+  {path: 'asset-main', component: AssetMainComponent},
+  {path: 'asset-list/:id', component: AssetsComponent}
 ];
 
 @NgModule({

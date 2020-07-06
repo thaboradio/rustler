@@ -1,0 +1,23 @@
+<div class="header">
+  <a routerLink="/asset-main" class="back-to-asset-category-list">Back To List</a>
+</div>
+<div class="list-of-assets-table">
+  <ul class="cat-list">
+    <li *ngFor="let item of assets" class="cat-list-item" (click)="getSelected(item.Id)">{{item.Name}}</li>
+  </ul>
+</div>
+<div class="about-asset" id="about-asset">
+  <div class="asset-header">
+    <h2>{{selectedAsset.Name}}.</h2>
+  </div>
+  <div class="asset-body">
+    <p>{{selectedAsset.Description}}</p>
+  </div>
+  <div class="asset-footer">
+    <a href="{{selectedAsset.Link}}" target="_blank" class="visit-button">Visit <i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<div class="placeholder" id="placeholder">
+
+</div>

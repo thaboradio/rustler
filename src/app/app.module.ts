@@ -18,6 +18,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import { LoginComponent } from './helper/login/login.component';
 import { AssetMainComponent } from './asset-main/asset-main.component';
+import { AssetsComponent } from './assets/assets.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { AssetMainComponent } from './asset-main/asset-main.component';
     IntroComponent,
     BizDetailsComponent,
     LoginComponent,
-    AssetMainComponent
+    AssetMainComponent,
+    AssetsComponent
   ],
   imports: [
     BrowserModule,
