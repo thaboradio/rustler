@@ -31,7 +31,6 @@ selectedAsset: Assets = null;
     });
   }
 
-
   getAssetsByCat(id) {
     this.assetService.getItemsByCategory(id)
     .subscribe(res => {

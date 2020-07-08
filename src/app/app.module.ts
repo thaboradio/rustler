@@ -19,6 +19,8 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import { LoginComponent } from './helper/login/login.component';
 import { AssetMainComponent } from './asset-main/asset-main.component';
 import { AssetsComponent } from './assets/assets.component';
+import { ContributeComponent} from './contribute/contribute.component';
+import { ConfirmComponent } from './helper/confirm/confirm.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { AssetsComponent } from './assets/assets.component';
     BizDetailsComponent,
     LoginComponent,
     AssetMainComponent,
-    AssetsComponent
+    AssetsComponent,
+    ContributeComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,

@@ -42,6 +42,7 @@
     text-decoration: none;
     width: 80%;
     display: block;
+    cursor: pointer;
 }
 .details {
     margin-top: 5%;

@@ -13,7 +13,7 @@ import { Bizcategory } from '../interfaces/bizcategory';
   styleUrls: ['./biz-details.component.css']
 })
 export class BizDetailsComponent implements OnInit {
-id;
+id = null;
 business: IBusiness =  new IBusiness();
 category;
   constructor(private route: ActivatedRoute, private bizService: BizdireService, private spinner: NgxSpinnerService,
@@ -35,8 +35,8 @@ category;
   getDetails(id) {
     this.bizService.getBusinessDetails(id)
     .subscribe(res => {
-      this.spinner.hide();
       this.business = res;
+      this.spinner.hide();
       this.getCategory(this.business.Category);
     },
     error => {
@@ -54,4 +54,7 @@ category;
     });
   }
 
+  goBackToList() {
+    this.router.navigateByUrl('/bizdir');
+  }
 }

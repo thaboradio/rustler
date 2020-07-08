@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BizdireService } from 'src/app/services/bizdire.service';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IBusiness } from 'src/app/models/ibusiness';
 import { Bizcategory } from 'src/app/interfaces/bizcategory';
 import { BizcategoryService } from 'src/app/services/bizcategory.service';
@@ -26,19 +26,19 @@ export class AddBusinessComponent implements OnInit {
   message;
 
   businessForm = new FormGroup({
-  Logo: new FormControl(''),
-  Name: new FormControl(''),
-  Description: new FormControl(''),
-  Category: new FormControl(20),
-  PhoneNumber: new FormControl(''),
-  AlternativePhoneNumber: new FormControl(''),
-  EmailAddress: new FormControl('', Validators.email),
-  Website: new FormControl(''),
-  FacebookLink: new FormControl(''),
-  TwitterLink: new FormControl('')
-});
-letters = 0;
-hideTotalChars = true;
+    Logo: new FormControl(''),
+    Name: new FormControl(''),
+    Description: new FormControl(''),
+    Category: new FormControl(20),
+    PhoneNumber: new FormControl(''),
+    AlternativePhoneNumber: new FormControl(''),
+    EmailAddress: new FormControl('', Validators.email),
+    Website: new FormControl(''),
+    FacebookLink: new FormControl(''),
+    TwitterLink: new FormControl('')
+  });
+  letters = 0;
+  hideTotalChars = true;
   constructor(private businessService: BizdireService, private bizCatService: BizcategoryService,
               private toast: ToastrService) { }
 
@@ -50,12 +50,17 @@ hideTotalChars = true;
 
   handleFileInput(file: FileList) {
     this.fileToUpload = file.item(0);
-
-    const reader = new FileReader();
-    reader.onload = (event: any) => {
-      this.imageUrl = event.target.result;
-    };
-    reader.readAsDataURL(this.fileToUpload);
+    if (this.fileToUpload === null) {
+      alert('No file selected');
+    } else if (this.fileToUpload.size > 1300) {
+      alert('Selected file must be less than 1.3Mb');
+    } else {
+      const reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.imageUrl = event.target.result;
+      };
+      reader.readAsDataURL(this.fileToUpload);
+    }
   }
 
   onSubmit(Image) {
@@ -63,53 +68,53 @@ hideTotalChars = true;
       this.message = 'logo required';
       this.showToast(this.message);
     } else {
-    const data = {
-      Name: this.businessForm.value.Name,
-      Description: this.businessForm.value.Description,
-      Category: this.businessForm.value.Category,
-      PhoneNumber: this.businessForm.value.PhoneNumber,
-      AlternativePhoneNumber: this.businessForm.value.AlternativePhoneNumber,
-      EmailAddress: this.businessForm.value.EmailAddress,
-      Website: this.businessForm.value.Website,
-      FacebookLink: this.businessForm.value.FacebookLink,
-      TwitterLink: this.businessForm.value.TwitterLink,
-      Logo: this.businessForm.value.Logo
-    };
-    this.businessService.addNewBusiness(this.fileToUpload, data)
-    .subscribe(res => {
-      this.message = 'data saved';
-      this.showToast(this.message);
-      Image = null;
-      this.businessForm.reset();
-      this.imageUrl = '/assets/img/placeholder.png';
-    },
-    error => {
-      this.toast.error(JSON.stringify(error), 'RustlerX');
-      console.log(error);
-    });
-  }
+      const data = {
+        Name: this.businessForm.value.Name,
+        Description: this.businessForm.value.Description,
+        Category: this.businessForm.value.Category,
+        PhoneNumber: this.businessForm.value.PhoneNumber,
+        AlternativePhoneNumber: this.businessForm.value.AlternativePhoneNumber,
+        EmailAddress: this.businessForm.value.EmailAddress,
+        Website: this.businessForm.value.Website,
+        FacebookLink: this.businessForm.value.FacebookLink,
+        TwitterLink: this.businessForm.value.TwitterLink,
+        Logo: this.businessForm.value.Logo
+      };
+      this.businessService.addNewBusiness(this.fileToUpload, data)
+        .subscribe(res => {
+          this.message = 'data saved';
+          this.showToast(this.message);
+          Image = null;
+          this.businessForm.reset();
+          this.imageUrl = '/assets/img/placeholder.png';
+        },
+          error => {
+            this.toast.error(JSON.stringify(error), 'RustlerX');
+            console.log(error);
+          });
+    }
   }
 
   getCategories() {
     return this.bizCatService.getCategories()
-    .subscribe(res => {
-      this.listOfCategories = res;
-    },
-    error => {
-      console.log(error);
-    });
+      .subscribe(res => {
+        this.listOfCategories = res;
+      },
+        error => {
+          console.log(error);
+        });
   }
 
-showToast(message) {
+  showToast(message) {
     this.toast.success(message, 'RustlerX');
-}
-
-countChars() {
-
-  this.letters += 1;
-  if (this.letters === 500) {
-    this.showToast('Only 500 Charaters Allowed!');
-    this.hideTotalChars = false;
   }
-}
+
+  countChars() {
+
+    this.letters += 1;
+    if (this.letters === 500) {
+      this.showToast('Only 500 Charaters Allowed!');
+      this.hideTotalChars = false;
+    }
+  }
 }

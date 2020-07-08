@@ -53,6 +53,7 @@
     color: #FFFFFF;
     font-weight: bold;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 @media (min-width: 768px){
