@@ -44,3 +44,7 @@
     cursor: pointer;
     border: 0;
 }
+
+.submit {
+    margin-left: 20%;
+}
