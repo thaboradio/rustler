@@ -1,7 +1,7 @@
 <div class="header">
   <a routerLink="/asset-main" class="back-to-asset-category-list">Back To List</a>
 </div>
-<div class="list-of-assets-table">
+<div class="list-of-assets-table" *ngIf="!showNoDisplayDiv">
   <ul class="cat-list">
     <li *ngFor="let item of assets" class="cat-list-item" (click)="getSelected(item.Id)">{{item.Name}}</li>
   </ul>
@@ -17,6 +17,12 @@
     <a href="{{selectedAsset.Link}}" target="_blank" class="visit-button">Visit <i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
   </div>
 </div>
+
+<div class="empty-asset-cat" *ngIf="showNoDisplayDiv === true">
+  <h2>We have no assets to share for this category at the moment</h2>
+  <h2>Stay tuned!</h2> 
+</div>
+
 
 <div class="placeholder" id="placeholder">
 

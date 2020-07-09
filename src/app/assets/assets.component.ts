@@ -18,6 +18,7 @@ export class AssetsComponent implements OnInit {
 assets: Assets[] = [];
 assetCat;
 selectedAsset: Assets = null;
+showNoDisplayDiv = false;
   constructor(private assetService: AssetsService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -35,6 +36,9 @@ selectedAsset: Assets = null;
     this.assetService.getItemsByCategory(id)
     .subscribe(res => {
       this.assets = res;
+      if (this.assets === null || this.assets === undefined || this.assets.length === 0) {
+        this.showNoDisplayDiv = true;
+      }
     },
     error => {
       console.log(error);

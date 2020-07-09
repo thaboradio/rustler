@@ -19,6 +19,7 @@
     box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
     border-radius: 4px;
     padding: 20px;
+    font-weight: bolder;
 }
 .card-white .card-image {
     text-align: center;

@@ -28,6 +28,7 @@ showLoading = false;
     this.cont.sendMessage(this.ContributionsForm.value)
     .subscribe(res => {
       console.log(res);
+      location.href = 'https://mailthis.to/confirm';
       this.router.navigateByUrl('/confirm');
       this.spinner.hide();
     },
