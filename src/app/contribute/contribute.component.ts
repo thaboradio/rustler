@@ -29,8 +29,11 @@ showLoading = false;
     .subscribe(res => {
       console.log(res);
       location.href = 'https://mailthis.to/confirm';
-      this.router.navigateByUrl('/confirm');
-      this.spinner.hide();
+
+      setTimeout(() => {
+        this.router.navigateByUrl('/confirm');
+        this.spinner.hide();
+      }, 2000);
     },
     error => {
       console.log(error);
