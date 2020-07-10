@@ -5,6 +5,7 @@ import { IBusiness } from 'src/app/models/ibusiness';
 import { Bizcategory } from 'src/app/interfaces/bizcategory';
 import { BizcategoryService } from 'src/app/services/bizcategory.service';
 import { ToastrService } from 'ngx-toastr';
+import { elementStart } from '@angular/core/src/render3';
 
 function preventFormRefresh() {
   const form = document.querySelector('form');
@@ -50,17 +51,17 @@ export class AddBusinessComponent implements OnInit {
 
   handleFileInput(file: FileList) {
     this.fileToUpload = file.item(0);
-    if (this.fileToUpload === null) {
-      alert('No file selected');
-    } else if (this.fileToUpload.size > 1300) {
-      alert('Selected file must be less than 1.3Mb');
+    const reader = new FileReader();
+    if (this.fileToUpload.size > 1300000) {
+      alert('selected file exceeds the limit of 1.3Mb');
+    } else if (this.fileToUpload.size < 0) {
+      alert('no file selected');
     } else {
-      const reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.imageUrl = event.target.result;
-      };
-      reader.readAsDataURL(this.fileToUpload);
-    }
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+    };
+    reader.readAsDataURL(this.fileToUpload);
+  }
   }
 
   onSubmit(Image) {
