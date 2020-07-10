@@ -13,7 +13,7 @@ import { ContributeComponent } from './contribute/contribute.component';
 import { ConfirmComponent } from './helper/confirm/confirm.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'bizdir'},
+  {path: '', pathMatch: 'full', redirectTo: 'intro'},
   {path: 'bizdir', component: BizDirectoryComponent},
   {path: 'addbiz', component: AddBusinessComponent},
   {path: 'biz/:id', component: BizDetailsComponent},
@@ -21,7 +21,8 @@ const routes: Routes = [
   {path: 'asset-main', component: AssetMainComponent},
   {path: 'asset-list/:id', component: AssetsComponent},
   {path: 'contribute', component: ContributeComponent},
-  {path: 'confirm', component: ConfirmComponent}
+  {path: 'confirm', component: ConfirmComponent},
+  {path: 'intro', component: IntroComponent}
 ];
 
 @NgModule({

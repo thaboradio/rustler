@@ -1,4 +1,42 @@
+.head-section {
+  margin: 2% auto;
+  width: 60%;
+  text-align: center;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  padding: 40px;
+  background: #FFFFFF;
+  font-weight: bolder;
 
+}
+
+.important-notice {
+  margin: 2% auto;
+  width: 60%;
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 40px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  color: #E33C17;
+}
+
+@media  (min-width: 780px){
+  .head-section {
+    margin: 2% auto;
+    width: 60%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* 
 .head-section {
     text-align: center;
     width: 700px;
@@ -43,4 +81,4 @@
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     background-color: #FFFFFF;
-  }
+  } */
