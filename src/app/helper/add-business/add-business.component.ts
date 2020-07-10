@@ -6,6 +6,7 @@ import { Bizcategory } from 'src/app/interfaces/bizcategory';
 import { BizcategoryService } from 'src/app/services/bizcategory.service';
 import { ToastrService } from 'ngx-toastr';
 import { elementStart } from '@angular/core/src/render3';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 function preventFormRefresh() {
   const form = document.querySelector('form');
@@ -41,7 +42,7 @@ export class AddBusinessComponent implements OnInit {
   letters = 0;
   hideTotalChars = true;
   constructor(private businessService: BizdireService, private bizCatService: BizcategoryService,
-              private toast: ToastrService) { }
+              private toast: ToastrService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     preventFormRefresh();
@@ -81,8 +82,10 @@ export class AddBusinessComponent implements OnInit {
         TwitterLink: this.businessForm.value.TwitterLink,
         Logo: this.businessForm.value.Logo
       };
+      this.spinner.show();
       this.businessService.addNewBusiness(this.fileToUpload, data)
         .subscribe(res => {
+          this.spinner.hide();
           this.message = 'data saved';
           this.showToast(this.message);
           Image = null;
