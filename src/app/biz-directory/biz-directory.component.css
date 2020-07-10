@@ -39,6 +39,9 @@
     text-decoration: none;
 }
 
+.placeholder {
+    margin-bottom: 20%;
+}
  @media (max-width: 380px){
      .header {
          width: 50%;
@@ -52,6 +55,9 @@
      .card-white .logo {
         display: none;
         padding: 1%;
+     }
+     .placeholder {
+         margin-bottom: 40%;
      }
  }
 
